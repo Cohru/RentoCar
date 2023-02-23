@@ -16,12 +16,14 @@ public class Employees // implements Discountvariable
     private String prenom;
     private int EmployeID;
     private ArrayList<Car> car;
+    //private ArrayList<Customers> client;
     
     //public Car createCar();
     //public void addcar(Car voiture ){}
     //public void changeStat
     //public void delete Car();
     
+    //Public browseCar();
     
     //public void accepterRent();
     
