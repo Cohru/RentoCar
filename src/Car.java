@@ -8,9 +8,12 @@
  * @author hucor
  */
 public class Car {
-    private String Brand;
     private String Price;
-    private int year ;
     private boolean etat;// si la voiture est libre pour pouvoir faire le tri plus faiclement
     private String description; // inserer des informations style nombre de place les cheveaux 
+    private double discount;
+    private int popularity;
+    
+    //public void popularity()
+    //public void SKAMPrice();
 }
