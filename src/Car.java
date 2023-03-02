@@ -14,15 +14,45 @@ public class Car {
     private double discount;
     private int popularity;
     
+    // Constructor car 
     public Car (double price,String description){
         this.Price= price;
         this.description=description;
         popularity = 0;
         etat = false;
     }
+    
+    //Car Methods
     public void popularity(){
        popularity +=1;
     }
     
+    
+    // Methods to set Discount
+    public void setDiscount(double discount){
+        this.discount= discount;
+    }
     //public void SKAMPrice();
+    
+    
+    public void resetPopularity(){
+        popularity =0;
+    }
+    
+    //Getters
+    public double getPrice() {
+        return Price;
+    }
+
+    public boolean isEtat() {
+        return etat;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public int getPopularity() {
+        return popularity;
+    }
 }
