@@ -9,7 +9,6 @@
  */
 public class Customers {
     private String name;
-    private String prenom;
     private int customerID;
     
     

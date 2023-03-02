@@ -13,7 +13,6 @@ import java.util.ArrayList;
 public class Employees // implements Discountvariable
 {
     private String name;
-    private String prenom;
     private int EmployeID;
     private ArrayList<Car> car;
     private ArrayList<Customers> client;
