@@ -18,14 +18,12 @@ public class Employees // implements Discountvariable
     private ArrayList<Customers> client;
 
     
-    //public Car createCar();
     //public void addcar(Car voiture ){}
-    //public void changeStat
-    //public void delete Car();
-    
-    //Public browseCar();
-    
-    //public void accepterRent();
+    //public void removeCar(Car voiture){}
+    //public void accepteRent(Customers client){}
+    //public static void browseCar();
+    //public void giveDiscount(Car voiture){]
+
     
     
 }

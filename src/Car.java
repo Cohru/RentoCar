@@ -32,12 +32,15 @@ public class Car {
     public void setDiscount(double discount){
         this.discount= discount;
     }
-    //public void SKAMPrice();
-    
+  
     
     public void resetPopularity(){
         popularity =0;
     }
+    
+    
+    //public void SKAMPrice();
+    
     
     //Getters
     public double getPrice() {
