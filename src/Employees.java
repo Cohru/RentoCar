@@ -14,11 +14,19 @@ public class Employees // implements Discountvariable
 {
     private String name;
     private int EmployeID;
-    private ArrayList<Car> car;
-    private ArrayList<Customers> client;
+    private static ArrayList<Car> Carlist;
+    protected static ArrayList<Customers> client;
 
+    public Employees(String name,int ID){
+        this.name=name;
+        EmployeID= ID;
+    }
     
-    //public void addcar(Car voiture ){}
+    
+    public void addcar(int id,double price,String description){
+        Car voiture = new Car(id,price,description);
+        Carlist.add(voiture);
+    }
     //public void removeCar(Car voiture){}
     //public void accepteRent(Customers client){}
     //public static void browseCar();

@@ -10,9 +10,7 @@
 public class Customers {
     private String name;
     private int customerID;
-    
-    
-    
+
     //public void Rent()
     //public void browse();
     //private double calculBill(); // mettre si business une reduc de ....

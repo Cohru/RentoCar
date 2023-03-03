@@ -8,6 +8,7 @@
  * @author hucor
  */
 public class Car {
+    private int carID;
     private double Price;
     private boolean etat;// si la voiture est libre pour pouvoir faire le tri plus faiclement
     private String description; // inserer des informations style nombre de place les cheveaux 
@@ -15,7 +16,9 @@ public class Car {
     private int popularity;
     
     // Constructor car 
-    public Car (double price,String description){
+    public Car (int id,double price,String description){
+        carID=id;
+        
         this.Price= price;
         this.description=description;
         popularity = 0;
