@@ -41,11 +41,13 @@ public class Car {
         popularity =0;
     }
     
-    
+
+
     //public void SKAMPrice();
-    
-    
     //Getters
+    public int getCarID() {    
+        return carID;
+    }
     public double getPrice() {
         return Price;
     }

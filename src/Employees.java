@@ -27,7 +27,14 @@ public class Employees // implements Discountvariable
         Car voiture = new Car(id,price,description);
         Carlist.add(voiture);
     }
-    //public void removeCar(Car voiture){}
+    
+    public void removeCar(int id){
+        for (int i =0;i<Carlist.size();i++){
+            if(Carlist.get(i).getCarID() == id){
+                Carlist.remove(i);
+            }
+        }
+    }
     //public void accepteRent(Customers client){}
     //public static void browseCar();
     //public void giveDiscount(Car voiture){]
