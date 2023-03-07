@@ -18,9 +18,8 @@ public class Employees // implements Discountvariable
     private static ArrayList<Car> Carlist;
     protected static ArrayList<Customers> client;
     
-    public Employees(String name,String ID,String Passeword){
+    public Employees(String name,String Passeword){
         this.name=name;
-        EmployeID= ID;
         this.Passeword=Passeword;
     }
     

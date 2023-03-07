@@ -57,7 +57,8 @@ public class Page extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void SubscribeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubscribeActionPerformed
-        new SubscribePage();
+       SubscribePage inscription = new SubscribePage();
+       inscription.setVisible(true);
     }//GEN-LAST:event_SubscribeActionPerformed
 
     /**
