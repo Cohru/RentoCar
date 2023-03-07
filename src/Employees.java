@@ -13,13 +13,15 @@ import java.util.ArrayList;
 public class Employees // implements Discountvariable
 {
     private String name;
-    private int EmployeID;
+    private String EmployeID;
+    private String Passeword;
     private static ArrayList<Car> Carlist;
     protected static ArrayList<Customers> client;
-
-    public Employees(String name,int ID){
+    
+    public Employees(String name,String ID,String Passeword){
         this.name=name;
         EmployeID= ID;
+        this.Passeword=Passeword;
     }
     
     
@@ -28,9 +30,9 @@ public class Employees // implements Discountvariable
         Carlist.add(voiture);
     }
     
-    public void removeCar(int id){
+    public void removeCar(int carid){
         for (int i =0;i<Carlist.size();i++){
-            if(Carlist.get(i).getCarID() == id){
+            if(Carlist.get(i).getCarID() == carid){
                 Carlist.remove(i);
             }
         }
