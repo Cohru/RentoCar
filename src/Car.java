@@ -17,7 +17,7 @@ public class Car {
     private String description; // inserer des informations style nombre de place les cheveaux 
     private double discount;
     private int popularity;
-    private JPanel panel;
+    private CarPanel panel;
     // Constructor car 
     public Car (int id,double price,String description){
         carID=id;

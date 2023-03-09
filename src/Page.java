@@ -1,10 +1,7 @@
 
 import java.awt.FlowLayout;
-import java.awt.GridLayout;
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.SpringLayout;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -23,19 +20,26 @@ public class Page extends javax.swing.JFrame {
     public Page() {
         String description = "voiture fefdede";
         initComponents();
-        Descriptioncase.setText(description);
         
+        setLayout(new FlowLayout());
+        CarPanel carpa = new CarPanel();
+        CarPanel car2pa = new CarPanel();
+       //ScrolPane.add(carpa);
+        add(carpa);
+        add(car2pa);
         /*
         JLabel lab1 = new JLabel();
         setLayout(new FlowLayout());
         add(lab1 = new JLabel("add JLabel"));*/
         //ask teacher how to add a jpannel in a swing gui
+        /*
         setLayout(new FlowLayout());
         JPanel paneltest = new JPanel();
+        
         JButton bouton = new JButton("bouton");
         paneltest.add(bouton);
         add(paneltest);
-        paneltest.setVisible(true);
+        paneltest.setVisible(true);*/
     }
 
     /**
@@ -47,89 +51,16 @@ public class Page extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Subscribe = new javax.swing.JButton();
-        PanelCar = new javax.swing.JPanel();
-        Imagecar = new javax.swing.JLabel();
-        Descriptioncase = new javax.swing.JTextField();
-        Pricecase = new javax.swing.JTextField();
+        ScrolPane = new javax.swing.JScrollPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        Subscribe.setText("Subscribe");
-        Subscribe.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SubscribeActionPerformed(evt);
-            }
-        });
-
-        Imagecar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lanbo.png"))); // NOI18N
-        Imagecar.setText("Image voiture");
-
-        Descriptioncase.setEditable(false);
-
-        Pricecase.setText("jTextField3");
-
-        javax.swing.GroupLayout PanelCarLayout = new javax.swing.GroupLayout(PanelCar);
-        PanelCar.setLayout(PanelCarLayout);
-        PanelCarLayout.setHorizontalGroup(
-            PanelCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelCarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Imagecar, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(PanelCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelCarLayout.createSequentialGroup()
-                        .addComponent(Descriptioncase, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(390, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelCarLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(Pricecase, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))))
-        );
-        PanelCarLayout.setVerticalGroup(
-            PanelCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelCarLayout.createSequentialGroup()
-                .addGroup(PanelCarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelCarLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(Imagecar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelCarLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Pricecase, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Descriptioncase, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(55, 55, 55)))
-                .addContainerGap())
-        );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Subscribe)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(PanelCar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Subscribe)
-                .addGap(65, 65, 65)
-                .addComponent(PanelCar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(247, Short.MAX_VALUE))
-        );
+        setPreferredSize(new java.awt.Dimension(600, 600));
+        setSize(new java.awt.Dimension(0, 0));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(ScrolPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 600, 410));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void SubscribeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubscribeActionPerformed
-       SubscribePage inscription = new SubscribePage();
-       inscription.setVisible(true);
-    }//GEN-LAST:event_SubscribeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -168,10 +99,6 @@ public class Page extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField Descriptioncase;
-    private javax.swing.JLabel Imagecar;
-    private javax.swing.JPanel PanelCar;
-    private javax.swing.JTextField Pricecase;
-    private javax.swing.JButton Subscribe;
+    private javax.swing.JScrollPane ScrolPane;
     // End of variables declaration//GEN-END:variables
 }
