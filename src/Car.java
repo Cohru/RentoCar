@@ -1,3 +1,6 @@
+
+import javax.swing.JPanel;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -14,7 +17,7 @@ public class Car {
     private String description; // inserer des informations style nombre de place les cheveaux 
     private double discount;
     private int popularity;
-    
+    private JPanel panel;
     // Constructor car 
     public Car (int id,double price,String description){
         carID=id;
