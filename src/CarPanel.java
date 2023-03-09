@@ -14,6 +14,7 @@ public class CarPanel extends javax.swing.JPanel {
      */
     public CarPanel() {
         initComponents();
+        //ImageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lanbo.png")));
     }
 
     /**
@@ -25,17 +26,13 @@ public class CarPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Imagecar = new javax.swing.JLabel();
         Pricecase = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         DescriptionCase = new javax.swing.JLabel();
+        ImageLabel = new javax.swing.JLabel();
 
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        Imagecar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lanbo.png"))); // NOI18N
-        Imagecar.setText("Image voiture");
-        add(Imagecar, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 187, 208));
 
         Pricecase.setText("Price");
         add(Pricecase, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 15, 127, 74));
@@ -50,6 +47,9 @@ public class CarPanel extends javax.swing.JPanel {
 
         DescriptionCase.setText("blabla car");
         add(DescriptionCase, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 54, 234, 97));
+
+        ImageLabel.setText("jLabel1");
+        add(ImageLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(-2, -4, 180, 220));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -59,7 +59,7 @@ public class CarPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel DescriptionCase;
-    private javax.swing.JLabel Imagecar;
+    private javax.swing.JLabel ImageLabel;
     private javax.swing.JTextField Pricecase;
     private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables
