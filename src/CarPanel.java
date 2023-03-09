@@ -49,7 +49,8 @@ public class CarPanel extends javax.swing.JPanel {
         add(DescriptionCase, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 54, 234, 97));
 
         ImageLabel.setText("jLabel1");
-        add(ImageLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(-2, -4, 180, 220));
+        ImageLabel.setToolTipText("");
+        add(ImageLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(-2, 6, 180, 210));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -59,7 +60,7 @@ public class CarPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel DescriptionCase;
-    private javax.swing.JLabel ImageLabel;
+    public javax.swing.JLabel ImageLabel;
     private javax.swing.JTextField Pricecase;
     private javax.swing.JButton jButton1;
     // End of variables declaration//GEN-END:variables

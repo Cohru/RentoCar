@@ -25,8 +25,8 @@ public class Employees // implements Discountvariable
     
     
     public void addcar(int id,double price,String description){
-        Car voiture = new Car(id,price,description);
-        Carlist.add(voiture);
+        //Car voiture = new Car(id,price,description);
+        //Carlist.add(voiture);
     }
     
     public void removeCar(int carid){

@@ -60,10 +60,14 @@
     <Component class="javax.swing.JLabel" name="ImageLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="jLabel1"/>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="-2" y="-4" width="180" height="220"/>
+          <AbsoluteConstraints x="-2" y="6" width="180" height="210"/>
         </Constraint>
       </Constraints>
     </Component>

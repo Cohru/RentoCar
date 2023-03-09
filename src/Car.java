@@ -1,4 +1,6 @@
 
+import java.awt.Image;
+import javax.swing.Icon;
 import javax.swing.JPanel;
 
 /*
@@ -17,15 +19,19 @@ public class Car {
     private String description; // inserer des informations style nombre de place les cheveaux 
     private double discount;
     private int popularity;
-    private CarPanel panel;
+    protected CarPanel panel;
+    private Icon icon;
     // Constructor car 
-    public Car (int id,double price,String description){
+    public Car (int id,double price,String description,Icon ic){
         carID=id;
         
         this.Price= price;
         this.description=description;
         popularity = 0;
         etat = false;
+        icon = ic;
+        panel = new CarPanel();
+        panel.ImageLabel.setIcon(icon);
     }
     
     //Car Methods
@@ -33,7 +39,9 @@ public class Car {
        popularity +=1;
     }
     
-    
+    public void setImage(Icon im){
+        icon = im;
+    }
     // Methods to set Discount
     public void setDiscount(double discount){
         this.discount= discount;

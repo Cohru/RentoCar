@@ -22,11 +22,14 @@ public class Page extends javax.swing.JFrame {
         initComponents();
         
         setLayout(new FlowLayout());
+        Car voiture = new Car(1,1000,"blblbl",new javax.swing.ImageIcon(getClass().getResource("/lanbo.png")));
+        add(voiture.panel);
+        /*
         CarPanel carpa = new CarPanel();
         CarPanel car2pa = new CarPanel();
        //ScrolPane.add(carpa);
         add(carpa);
-        add(car2pa);
+        add(car2pa);*/
         /*
         JLabel lab1 = new JLabel();
         setLayout(new FlowLayout());
