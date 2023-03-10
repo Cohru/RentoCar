@@ -22,27 +22,24 @@ public class Page extends javax.swing.JFrame {
         initComponents();
         
         setLayout(new FlowLayout());
+        
+        //code pour mettre une image dans une voiture et afficher 
         Car voiture = new Car(1,1000,"blblbl",new javax.swing.ImageIcon(getClass().getResource("/lanbo.png")));
         add(voiture.panel);
-        /*
-        CarPanel carpa = new CarPanel();
-        CarPanel car2pa = new CarPanel();
-       //ScrolPane.add(carpa);
-        add(carpa);
-        add(car2pa);*/
-        /*
-        JLabel lab1 = new JLabel();
-        setLayout(new FlowLayout());
-        add(lab1 = new JLabel("add JLabel"));*/
-        //ask teacher how to add a jpannel in a swing gui
-        /*
-        setLayout(new FlowLayout());
-        JPanel paneltest = new JPanel();
         
-        JButton bouton = new JButton("bouton");
-        paneltest.add(bouton);
-        add(paneltest);
-        paneltest.setVisible(true);*/
+        //System.out.println(voiture.panel.PrixCase.getText());
+        
+        
+        
+
+        
+        //Maintenant Importer toutes les voitures 
+        //faire un setter correct dans la classe voiture 
+        //relier le programme avec wamp
+        //set tous like Prix,Description, ajouter l'ID de la voiture comme ça
+        //mettre une loop avec toutes les voitures pour faire fonctionner 
+        
+
     }
 
     /**
@@ -54,13 +51,10 @@ public class Page extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        ScrolPane = new javax.swing.JScrollPane();
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(600, 600));
         setSize(new java.awt.Dimension(0, 0));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(ScrolPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 600, 410));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -102,6 +96,5 @@ public class Page extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane ScrolPane;
     // End of variables declaration//GEN-END:variables
 }

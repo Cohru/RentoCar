@@ -32,12 +32,17 @@ public class Car {
         icon = ic;
         panel = new CarPanel();
         panel.ImageLabel.setIcon(icon);
+        panel.DescriptionCase.setText(description);
+        panel.PrixCase.setText(Double.toString(Price));
+        
     }
     
     //Car Methods
     public void popularity(){
        popularity +=1;
     }
+    
+
     
     public void setImage(Icon im){
         icon = im;

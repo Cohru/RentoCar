@@ -26,16 +26,16 @@ public class CarPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Pricecase = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         DescriptionCase = new javax.swing.JLabel();
         ImageLabel = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        PrixCase = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        Pricecase.setText("Price");
-        add(Pricecase, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 15, 127, 74));
 
         jButton1.setText("Rent");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -45,12 +45,30 @@ public class CarPanel extends javax.swing.JPanel {
         });
         add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 115, 127, 56));
 
-        DescriptionCase.setText("blabla car");
-        add(DescriptionCase, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 54, 234, 97));
+        DescriptionCase.setText("Description");
+        DescriptionCase.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        DescriptionCase.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        add(DescriptionCase, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 30, 180, 160));
 
-        ImageLabel.setText("jLabel1");
+        ImageLabel.setText("Image");
         ImageLabel.setToolTipText("");
-        add(ImageLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(-2, 6, 180, 210));
+        ImageLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        add(ImageLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 220, 190));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel1.setText("Price");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 30, 120, 30));
+
+        PrixCase.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        add(PrixCase, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 60, 90, 30));
+
+        jLabel2.setBackground(new java.awt.Color(255, 255, 204));
+        jLabel2.setToolTipText(""); // NOI18N
+        jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 30, 130, 80));
+
+        jLabel3.setText("£ per day");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 90, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -59,9 +77,12 @@ public class CarPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel DescriptionCase;
-    public javax.swing.JLabel ImageLabel;
-    private javax.swing.JTextField Pricecase;
+    protected javax.swing.JLabel DescriptionCase;
+    protected javax.swing.JLabel ImageLabel;
+    protected javax.swing.JLabel PrixCase;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }
