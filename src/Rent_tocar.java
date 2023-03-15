@@ -9,15 +9,13 @@
      * @author Jus
      */
 
-import java.awt.Image;
+
 import java.awt.image.BufferedImage;
-import java.io.IOException;
 import java.io.InputStream;
-    import java.sql.Connection;
-    import java.sql.DriverManager;
-    import java.sql.ResultSet;
-    import java.sql.SQLException;
-    import java.sql.Statement;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -27,9 +25,11 @@ import javax.swing.ImageIcon;
      * @author mysqltest
      */
     public class Rent_tocar {
-        java.sql.Blob blob;
-        public ArrayList<Car> RecupCar(ArrayList<Car> car) throws IOException{
-                    Connection conn = null;
+        private Connection conn;
+        private java.sql.Blob blob;
+
+        public ArrayList<Car> Recupcar(ArrayList<Car> Carini){
+            
         try {
             // db parameters - ptest is the name of the database
             String url       = "jdbc:mysql://localhost:3306/rent_tocar";
@@ -42,24 +42,29 @@ import javax.swing.ImageIcon;
             // ...   
             Statement stmt=conn.createStatement(); 
             ResultSet rs=stmt.executeQuery("select * from car"); 
-            while(rs.next()) 
+            while(rs.next()) {
+                
+            //System.out.println(rs.getInt(1)+"  "+rs.getString(2)); 
+            int id = rs.getInt(1);
+            double price = rs.getDouble(2);
+            String description = rs.getString(5);
+            
             blob = rs.getBlob(6);  
             InputStream in = blob.getBinaryStream();  
             BufferedImage image = ImageIO.read(in);
-            Car voiture = new Car(rs.getInt(1),rs.getInt(2),rs.getString(5),new ImageIcon(image));
-            System.out.println(rs.getInt(1)+"  "+rs.getDouble(2)+" "+rs.getString(5)); 
-        conn.close();  
-        } catch(SQLException e) {
-            System.out.println(e.getMessage());
-        } finally {
-            try{
-               if(conn != null)
-                 conn.close();
-            }catch(SQLException ex){
-               System.out.println(ex.getMessage());
-            }
-        }
-        return car;
-        }  
+            ImageIcon photo = new ImageIcon(image);
+            Car voiture = new Car(id,price,description,photo);
+            Carini.add(voiture);
 
-}
+            }
+            conn.close(); 
+        }
+        catch( Exception e )
+        {
+        System.out.println("Error Occured " + e.toString());
+        }
+        return Carini;
+    }
+}  
+
+        

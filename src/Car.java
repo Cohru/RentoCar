@@ -34,7 +34,7 @@ public class Car {
         panel.ImageLabel.setIcon(icon);
         panel.DescriptionCase.setText(description);
         panel.PrixCase.setText(Double.toString(Price));
-        
+
     }
     
     //Car Methods

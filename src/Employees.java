@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import javax.swing.Icon;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -15,18 +16,19 @@ public class Employees // implements Discountvariable
     private String name;
     private String EmployeID;
     private String Passeword;
-    private static ArrayList<Car> Carlist;
-    protected static ArrayList<Customers> client;
+    protected static ArrayList<Car> Carlist = new ArrayList<Car>();
+    protected static ArrayList<Customers> client =null;
     
     public Employees(String name,String Passeword){
         this.name=name;
         this.Passeword=Passeword;
+        
     }
     
     
-    public void addcar(int id,double price,String description){
-        //Car voiture = new Car(id,price,description);
-        //Carlist.add(voiture);
+    public static void addcar(int id,double price,String description,Icon im){
+        Car voiture = new Car(id,price,description,im);
+        Carlist.add(Carlist.size()+1,voiture);
     }
     
     public void removeCar(int carid){
@@ -36,6 +38,8 @@ public class Employees // implements Discountvariable
             }
         }
     }
+    
+    
     //public void accepteRent(Customers client){}
     //public static void browseCar();
     //public void giveDiscount(Car voiture){]
