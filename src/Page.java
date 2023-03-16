@@ -28,13 +28,16 @@ public class Page extends javax.swing.JFrame {
         }
     }
 
-
+    public int getIndice(){
+        return indice;
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        Rentbouton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -60,6 +63,13 @@ public class Page extends javax.swing.JFrame {
             }
         });
 
+        Rentbouton.setText("RENT");
+        Rentbouton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RentboutonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -67,17 +77,20 @@ public class Page extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(84, 84, 84)
                 .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 315, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
+                .addComponent(Rentbouton)
+                .addGap(120, 120, 120)
                 .addComponent(jButton2)
                 .addGap(77, 77, 77))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(261, Short.MAX_VALUE)
+                .addContainerGap(251, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(jButton2)
+                    .addComponent(Rentbouton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15))
         );
 
@@ -108,10 +121,13 @@ public class Page extends javax.swing.JFrame {
         }   
         setLayout(new BorderLayout());
         add(Employees.Carlist.get(indice).panel);
-        System.out.println(indice);
         revalidate();
         repaint();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void RentboutonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RentboutonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RentboutonActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -140,6 +156,7 @@ public class Page extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                
                 new Page().setVisible(true);
                 
             }
@@ -147,6 +164,7 @@ public class Page extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Rentbouton;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     // End of variables declaration//GEN-END:variables

@@ -20,4 +20,10 @@ public class Customers {
         this.name = name;
         this.Passeword = Passeword;
     }
+    
+    public static void Rent(){
+        System.out.println("j'essaie");
+
+        
+    }
 }

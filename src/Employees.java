@@ -23,9 +23,10 @@ public class Employees // implements Discountvariable
         this.name=name;
         this.Passeword=Passeword;
         
+        
     }
     
-    
+
     public static void addcar(int id,double price,String description,Icon im){
         Car voiture = new Car(id,price,description,im);
         Carlist.add(Carlist.size()+1,voiture);

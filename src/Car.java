@@ -32,7 +32,7 @@ public class Car {
         icon = ic;
         panel = new CarPanel();
         panel.ImageLabel.setIcon(icon);
-        panel.DescriptionCase.setText(description);
+        panel.jTextArea2.setText(description);
         panel.PrixCase.setText(Double.toString(Price));
 
     }
@@ -42,7 +42,9 @@ public class Car {
        popularity +=1;
     }
     
-
+    protected static void RentActionPerformed() {                                         
+           System.out.println("try");
+    }     
     
     public void setImage(Icon im){
         icon = im;
