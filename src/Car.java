@@ -104,4 +104,10 @@ public class Car {
     public int getPopularity() {
         return popularity;
     }
+
+    public double getDiscount() {
+        return discount;
+    }
+    
+    
 }
