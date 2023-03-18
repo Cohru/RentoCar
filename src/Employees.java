@@ -14,15 +14,17 @@ import javax.swing.Icon;
 public class Employees // implements Discountvariable
 {
     private String name;
-    private String EmployeID;
+    private int EmployeID;
     private String Passeword;
     protected static ArrayList<Car> Carlist = new ArrayList<Car>();
-    protected static ArrayList<Customers> client =null;
+    protected static ArrayList<Customers> client = new ArrayList<Customers>();
+    protected static ArrayList<Rent> Rents = new ArrayList<Rent>();
     
-    public Employees(String name,String Passeword){
+    
+    public Employees(String name,String Passeword,int id ){
         this.name=name;
         this.Passeword=Passeword;
-        
+        EmployeID=id;
         
     }
     
@@ -44,6 +46,14 @@ public class Employees // implements Discountvariable
     //public void accepteRent(Customers client){}
     //public static void browseCar();
     //public void giveDiscount(Car voiture){]
+
+    public String getName() {
+        return name;
+    }
+
+    public String getPasseword() {
+        return Passeword;
+    }
 
     
     

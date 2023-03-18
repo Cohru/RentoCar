@@ -9,21 +9,20 @@
  */
 public class Customers {
     private String name;
-    private int customerID;
+    private String email;
     private String Passeword;
     
     //public void Rent()
     //public void browse();
     //private double calculBill(); // mettre si business une reduc de ....
 
-    public Customers(String name, String Passeword) {
+    public Customers(String name,String email, String Passeword) {
         this.name = name;
+        this.email= email;
         this.Passeword = Passeword;
     }
     
-    public static void Rent(){
-        System.out.println("j'essaie");
-
-        
+    public String getEmail(){
+        return email;
     }
 }

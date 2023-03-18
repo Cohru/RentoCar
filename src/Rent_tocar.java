@@ -28,7 +28,7 @@ import javax.swing.ImageIcon;
         private Connection conn;
         private java.sql.Blob blob;
 
-        public ArrayList<Car> Recupcar(ArrayList<Car> Carini){
+        public void Recupcar(ArrayList<Car> Carini){
             
         try {
             // db parameters - ptest is the name of the database
@@ -63,8 +63,12 @@ import javax.swing.ImageIcon;
         {
         System.out.println("Error Occured " + e.toString());
         }
-        return Carini;
+
     }
+        
+        
+        
+
 }  
 
         

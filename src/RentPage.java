@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 import static java.util.concurrent.TimeUnit.DAYS;
+import javax.swing.SwingUtilities;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -16,14 +17,37 @@ import static java.util.concurrent.TimeUnit.DAYS;
  * @author hucor
  */
 public class RentPage extends javax.swing.JFrame {
-
-    /**
-     * Creates new form RentPage
-     */
-    public RentPage() {
+    protected Date Begdate;
+    protected Date Endate;
+    protected long daysDiff;
+    protected String email;
+    protected String Passeword;
+    protected int inde;
+    private int indice;
+    public RentPage(int indice) {
         initComponents();
+        this.indice=indice;
     }
 
+    public Date getBegdate() {
+        return Begdate;
+    }
+
+    public Date getEndate() {
+        return Endate;
+    }
+
+    public long getDaysDiff() {
+        return daysDiff;
+    }
+
+    public int getInde() {
+        return inde;
+    }
+    
+   
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -133,49 +157,24 @@ public class RentPage extends javax.swing.JFrame {
 
     private void SubmitBoutonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitBoutonActionPerformed
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
-        Date Begdate= BeginDate.getDate();
-        Date Endate = EnDate.getDate();
+        Begdate= BeginDate.getDate();
+        Endate = EnDate.getDate();
+        long timeDiff = Math.abs(Begdate.getTime() - Endate.getTime());
+        daysDiff = TimeUnit.DAYS.convert(timeDiff, TimeUnit.MILLISECONDS);
 
-    long timeDiff = Math.abs(Begdate.getTime() - Endate.getTime());
-    long daysDiff = TimeUnit.DAYS.convert(timeDiff, TimeUnit.MILLISECONDS);
-    System.out.println("The number of days between dates: " + daysDiff);
+
+        email = Emailfield.getText();
+        Passeword = Passewordfield.getText();
+        for (int i =0;i<Employees.client.size();i++){
+            if (email.equals(Employees.client.get(i).getEmail()) && Passeword.equals(Employees.client.get(i).getEmail()));
+            inde=i;
+        }
+        Rent re = new Rent(Employees.client.get(inde).getEmail(),Employees.Carlist.get(indice).getCarID(),Begdate,Endate,daysDiff);
+        Employees.Rents.add(re);
+        dispose();
     }//GEN-LAST:event_SubmitBoutonActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RentPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RentPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RentPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RentPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new RentPage().setVisible(true);
-            }
-        });
-    }
-
+   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.toedter.calendar.JDateChooser BeginDate;
     private javax.swing.JTextField Emailfield;

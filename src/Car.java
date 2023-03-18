@@ -17,7 +17,7 @@ public class Car {
     private double Price;
     private boolean etat;// si la voiture est libre pour pouvoir faire le tri plus faiclement
     private String description; // inserer des informations style nombre de place les cheveaux 
-    private double discount;
+    private double discount=0;
     private int popularity;
     protected CarPanel panel;
     private Icon icon;
@@ -34,6 +34,8 @@ public class Car {
         panel.ImageLabel.setIcon(icon);
         panel.jTextArea2.setText(description);
         panel.PrixCase.setText(Double.toString(Price));
+        panel.jLabel4.setVisible(false);
+        panel.DiscountTextLabel.setVisible(false);
 
     }
     
@@ -52,6 +54,17 @@ public class Car {
     // Methods to set Discount
     public void setDiscount(double discount){
         this.discount= discount;
+        if (discount != 0){
+            discount= discount*100;
+            panel.jLabel4.setText(Double.toString(discount));
+            panel.jLabel4.setVisible(true);
+            panel.DiscountTextLabel.setVisible(true);
+            System.out.println("discount added");
+        }
+        else{
+            panel.jLabel4.setVisible(false);
+            panel.DiscountTextLabel.setVisible(false);
+        }
     }
   
     
@@ -65,6 +78,10 @@ public class Car {
     //Getters
     public int getCarID() {    
         return carID;
+    }
+
+    public void setEtat(boolean etat) {
+        this.etat = etat;
     }
     public double getPrice() {
         return Price;

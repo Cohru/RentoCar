@@ -1,3 +1,6 @@
+
+import java.util.Date;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -8,23 +11,27 @@
  * @author hucor
  */
 public class Rent {
-    private Customers client;
-    private Car voiture;
-    private String beginning;
-    private String end;
+    private String email;
+    private int ID;
+    private Date beginning;
+    private Date end;
+    private long days;
 
-    public Rent(Customers client, Car voiture, String beginning, String end) {
-        this.client = client;
-        this.voiture = voiture;
+    public Rent(String email, int ID, Date beginning, Date end, long days) {
+        this.email = email;
+        this.ID = ID;
         this.beginning = beginning;
         this.end = end;
+        this.days = days;
     }
+    
 
-    public void setBeginning(String beginning) {
+
+    public void setBeginning(Date beginning) {
         this.beginning = beginning;
     }
 
-    public void setEnd(String end) {
+    public void setEnd(Date end) {
         this.end = end;
     }
     
