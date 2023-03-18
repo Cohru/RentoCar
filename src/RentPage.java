@@ -170,7 +170,7 @@ public class RentPage extends javax.swing.JFrame {
             inde=i;
         }
         Rent re = new Rent(Employees.client.get(inde).getEmail(),Employees.Carlist.get(indice).getCarID(),Begdate,Endate,daysDiff);
-        Employees.Rents.add(re);
+        Employees.rent.add(re);
         dispose();
     }//GEN-LAST:event_SubmitBoutonActionPerformed
 

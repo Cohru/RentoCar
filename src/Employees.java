@@ -18,7 +18,7 @@ public class Employees // implements Discountvariable
     private String Passeword;
     protected static ArrayList<Car> Carlist = new ArrayList<Car>();
     protected static ArrayList<Customers> client = new ArrayList<Customers>();
-    protected static ArrayList<Rent> Rents = new ArrayList<Rent>();
+    protected static ArrayList<Rent> rent = new ArrayList<Rent>();
     
     
     public Employees(String name,String Passeword,int id ){
@@ -30,7 +30,7 @@ public class Employees // implements Discountvariable
     
 
     public static void addcar(int id,double price,String description,Icon im){
-        Car voiture = new Car(id,price,description,im);
+        Car voiture = new Car(id,price,description,0,false,im);
         Carlist.add(Carlist.size()+1,voiture);
     }
     

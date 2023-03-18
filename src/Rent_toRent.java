@@ -35,8 +35,8 @@ public class Rent_toRent {
             while(rs.next()) {
 
                 Rent r= new Rent(rs.getString(4),rs.getInt(3),rs.getDate(1),rs.getDate(2),rs.getInt(5));
-                Employees.Rents.add(r);
-
+                Renti.add(r);
+                
             }
             conn.close(); 
         }
@@ -47,6 +47,6 @@ public class Rent_toRent {
 
     }
     
-    
+
 }
  

@@ -81,7 +81,8 @@ public class EmployePage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void RentsBoutonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RentsBoutonActionPerformed
-        // TODO add your handling code here:
+        RentTab r= new RentTab();
+        r.setVisible(true);
     }//GEN-LAST:event_RentsBoutonActionPerformed
 
     private void AddCarBoutonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddCarBoutonActionPerformed
@@ -89,7 +90,8 @@ public class EmployePage extends javax.swing.JFrame {
     }//GEN-LAST:event_AddCarBoutonActionPerformed
 
     private void ReviewBoutonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReviewBoutonActionPerformed
-        
+        ControlCar c= new ControlCar();
+        c.setVisible(true);
     }//GEN-LAST:event_ReviewBoutonActionPerformed
 
     /**

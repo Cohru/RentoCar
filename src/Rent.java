@@ -34,6 +34,26 @@ public class Rent {
     public void setEnd(Date end) {
         this.end = end;
     }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public int getID() {
+        return ID;
+    }
+
+    public Date getBeginning() {
+        return beginning;
+    }
+
+    public Date getEnd() {
+        return end;
+    }
+
+    public long getDays() {
+        return days;
+    }
     
     
 }

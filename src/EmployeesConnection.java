@@ -95,8 +95,8 @@ public class EmployeesConnection extends javax.swing.JFrame {
         String Passeword = PassewordField.getText();
         for (int i = 0;i<EmList.size();i++){
             if (name.equals(EmList.get(i).getName()) && Passeword.equals(EmList.get(i).getPasseword())){
-                
-                
+                EmployePage ep = new EmployePage();
+                ep.setVisible(true);
                 dispose();
             }
         } 

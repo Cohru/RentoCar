@@ -53,7 +53,7 @@ import javax.swing.ImageIcon;
             InputStream in = blob.getBinaryStream();  
             BufferedImage image = ImageIO.read(in);
             ImageIcon photo = new ImageIcon(image);
-            Car voiture = new Car(id,price,description,photo);
+            Car voiture = new Car(id,price,description,rs.getInt(3),rs.getBoolean(4),photo);
             Carini.add(voiture);
 
             }

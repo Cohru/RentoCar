@@ -18,25 +18,32 @@ public class Car {
     private boolean etat;// si la voiture est libre pour pouvoir faire le tri plus faiclement
     private String description; // inserer des informations style nombre de place les cheveaux 
     private double discount=0;
-    private int popularity;
+    private int popularity ;
     protected CarPanel panel;
     private Icon icon;
     // Constructor car 
-    public Car (int id,double price,String description,Icon ic){
+    public Car (int id,double price,String description,int popu,boolean stat,Icon ic){
         carID=id;
         
         this.Price= price;
         this.description=description;
-        popularity = 0;
-        etat = false;
+        popularity =popu;
+        etat = stat;
+
         icon = ic;
         panel = new CarPanel();
         panel.ImageLabel.setIcon(icon);
         panel.jTextArea2.setText(description);
         panel.PrixCase.setText(Double.toString(Price));
-        panel.jLabel4.setVisible(false);
-        panel.DiscountTextLabel.setVisible(false);
-
+        
+        if (discount == 0){
+            panel.jLabel4.setVisible(false);
+            panel.DiscountTextLabel.setVisible(false);
+        }
+        else {
+            panel.jLabel4.setVisible(true);
+            panel.DiscountTextLabel.setVisible(true);
+        }
     }
     
     //Car Methods
@@ -59,7 +66,6 @@ public class Car {
             panel.jLabel4.setText(Double.toString(discount));
             panel.jLabel4.setVisible(true);
             panel.DiscountTextLabel.setVisible(true);
-            System.out.println("discount added");
         }
         else{
             panel.jLabel4.setVisible(false);
