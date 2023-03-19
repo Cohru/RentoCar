@@ -1,10 +1,14 @@
 
+import java.io.IOException;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 import static java.util.concurrent.TimeUnit.DAYS;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.SwingUtilities;
 
 /*
@@ -67,6 +71,7 @@ public class RentPage extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         NewCustoBouton = new javax.swing.JButton();
         SubmitBouton = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -98,6 +103,13 @@ public class RentPage extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Close");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -121,11 +133,17 @@ public class RentPage extends javax.swing.JFrame {
                         .addGap(29, 29, 29)
                         .addComponent(NewCustoBouton)))
                 .addContainerGap(10, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(44, 44, 44)
+                .addContainerGap()
+                .addComponent(jButton1)
+                .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(BeginDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -165,14 +183,30 @@ public class RentPage extends javax.swing.JFrame {
 
         email = Emailfield.getText();
         Passeword = Passewordfield.getText();
-        for (int i =0;i<Employees.client.size();i++){
+        for (int  i =0;i<Employees.client.size();i++){
             if (email.equals(Employees.client.get(i).getEmail()) && Passeword.equals(Employees.client.get(i).getEmail()));
             inde=i;
         }
         Rent re = new Rent(Employees.client.get(inde).getEmail(),Employees.Carlist.get(indice).getCarID(),Begdate,Endate,daysDiff);
         Employees.rent.add(re);
+        CarImpl cim = new CarImpl();
+        try {
+            cim.addRent(re);
+        } catch (IOException ex) {
+            Logger.getLogger(RentPage.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(RentPage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Employees.Carlist.get(indice).popularity();
+        // UPDATE CAR STATE 
+        cim.updatePopularityInDatabase(Employees.Carlist.get(indice).getCarID(), Employees.Carlist.get(indice).getPopularity());
+        cim.CarStat(Employees.Carlist.get(indice).getCarID(), false);
         dispose();
     }//GEN-LAST:event_SubmitBoutonActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -182,6 +216,7 @@ public class RentPage extends javax.swing.JFrame {
     private javax.swing.JButton NewCustoBouton;
     private javax.swing.JTextField Passewordfield;
     private javax.swing.JButton SubmitBouton;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

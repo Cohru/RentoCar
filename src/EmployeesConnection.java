@@ -18,9 +18,7 @@ public class EmployeesConnection extends javax.swing.JFrame {
         EmList = new ArrayList<Employees>();
         Rent_toEmployees r= new Rent_toEmployees();
         r.RecupEmployees(EmList);
-        Rent_tocar cl = new Rent_tocar();
-        
-        cl.Recupcar(Employees.Carlist);
+
     }
 
     /**

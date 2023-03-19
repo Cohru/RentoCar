@@ -57,4 +57,83 @@ public class CarImpl {
             }
         }
     }
+    
+        public void addRent(Rent re) throws IOException, SQLException {
+        Connection dbConnection = null;
+        PreparedStatement statement = null;
+
+        
+        try {
+            DataSource dataSource = new DataSource();
+            dbConnection = dataSource.createConnection();
+
+            
+            java.util.Date beginning = re.getBeginning();
+            java.util.Date end = re.getEnd();
+            java.sql.Date sqlBeginning = new java.sql.Date(beginning.getTime());
+            java.sql.Date sqlEnd = new java.sql.Date(end.getTime());
+            
+            // Créer la requête SQL paramétrée pour l'insertion de la voiture
+            String sql = "INSERT INTO rent (date_debut,date_fin,car_id,email,days) VALUES (?, ?, ?, ?, ?)";
+            statement = dbConnection.prepareStatement(sql);
+            statement.setDate(1, (Date) sqlBeginning);
+            statement.setDate(2, (Date) sqlEnd);
+            statement.setInt(3, re.getID());
+            statement.setString(4, re.getEmail());
+            statement.setLong(5, re.getDays());
+    
+
+            // Exécuter la requête SQL
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            // Fermer les ressources
+            if (statement != null) {
+                statement.close();
+            }
+            if (dbConnection != null) {
+                dbConnection.close();
+            }
+        }
+    }
+    public void updatePopularityInDatabase(int id, int newPopularity) {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        try {
+            DataSource dataSource = new DataSource();
+            conn = dataSource.createConnection();
+            
+            String sql = "UPDATE car SET popularity = " + newPopularity + " WHERE car_id = " + id;
+            
+            stmt = conn.prepareStatement(sql);
+            stmt.executeUpdate(sql);
+            stmt.close();
+            conn.close();
+            System.out.println("Successfully updated popularity for car with ID " + id
+            );
+    } catch (SQLException e) {
+        System.out.println("Error updating popularity in database: " + e.getMessage());
+    }
+    }
+        
+        
+    public void CarStat(int id, boolean et) {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        try {
+            DataSource dataSource = new DataSource();
+            conn = dataSource.createConnection();
+            String sql = "UPDATE car SET state = " + et + " WHERE car_id = " + id;
+            stmt = conn.prepareStatement(sql);
+            stmt.executeUpdate(sql);
+            stmt.close();
+            conn.close();
+            System.out.println("Successfully updated popularity for car with ID " + id
+            );
+    } catch (SQLException e) {
+        System.out.println("Error updating popularity in database: " + e.getMessage());
+    }
+
+    }
 }

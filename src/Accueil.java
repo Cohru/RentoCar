@@ -14,6 +14,11 @@ public class Accueil extends javax.swing.JFrame {
      */
     public Accueil() {
         initComponents();
+        
+        Rent_tocar cl = new Rent_tocar();
+        cl.Recupcar(Employees.Carlist);
+        
+         
     }
 
     /**
