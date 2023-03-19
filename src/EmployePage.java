@@ -86,7 +86,8 @@ public class EmployePage extends javax.swing.JFrame {
     }//GEN-LAST:event_RentsBoutonActionPerformed
 
     private void AddCarBoutonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddCarBoutonActionPerformed
-        // TODO add your handling code here:
+        AddCarPage acp = new AddCarPage();
+        acp.setVisible(true);
     }//GEN-LAST:event_AddCarBoutonActionPerformed
 
     private void ReviewBoutonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReviewBoutonActionPerformed

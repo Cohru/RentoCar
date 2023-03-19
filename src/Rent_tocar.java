@@ -49,7 +49,7 @@ import javax.swing.ImageIcon;
             double price = rs.getDouble(2);
             String description = rs.getString(5);
             
-            blob = rs.getBlob(6);  
+            blob = rs.getBlob(7);  
             InputStream in = blob.getBinaryStream();  
             BufferedImage image = ImageIO.read(in);
             ImageIcon photo = new ImageIcon(image);
@@ -66,7 +66,11 @@ import javax.swing.ImageIcon;
 
     }
         
-        
+        public static void main(String args[]) {
+            Rent_tocar r = new Rent_tocar();
+            ArrayList<Car> c = new ArrayList<Car> ();
+            r.Recupcar(c);
+        }   
         
 
 }  

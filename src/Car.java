@@ -1,6 +1,7 @@
 
 
 import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 /*
@@ -82,7 +83,14 @@ public class Car {
 
     //public void SKAMPrice();
     //Getters
-    public int getCarID() {    
+    
+    
+    
+    public ImageIcon getIcon() {    
+        return (ImageIcon) icon;
+    }
+
+    public int getCarID() {
         return carID;
     }
 

@@ -18,9 +18,7 @@ public class ControlCar extends javax.swing.JFrame {
     
     public ControlCar() {
         initComponents();
-        Rent_tocar r = new Rent_tocar();
-        
-        r.Recupcar(Employees.Carlist);
+
         setLayout(new BorderLayout());
         System.out.println(Employees.Carlist.size());
         setLayout(new BorderLayout());
@@ -129,6 +127,7 @@ public class ControlCar extends javax.swing.JFrame {
         setLayout(new BorderLayout());
         add(Employees.Carlist.get(select).panel);
         PopuLabel.setText(Integer.toString( Employees.Carlist.get(select).getPopularity()));
+        System.out.println(Employees.Carlist.size());
         revalidate();
         repaint();
     }//GEN-LAST:event_jButton1ActionPerformed
