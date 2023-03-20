@@ -18,14 +18,9 @@ public class Page extends javax.swing.JFrame {
     public Page()  {
         
         initComponents();
+             
         
-        
-        Customers cli= new Customers("Corentin","hucorentin1@yahoo.fr", "ABCD");
-        Employees.client.add(cli);
-        
-        
-        Rent_tocar tocar = new Rent_tocar();
-        tocar.Recupcar(Employees.Carlist);
+     
         setLayout(new BorderLayout());
         System.out.println(Employees.Carlist.size());
         setLayout(new BorderLayout());
@@ -46,6 +41,7 @@ public class Page extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         Rentbouton = new javax.swing.JButton();
+        AvaPanel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -85,9 +81,11 @@ public class Page extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(84, 84, 84)
                 .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
+                .addGap(118, 118, 118)
                 .addComponent(Rentbouton)
-                .addGap(120, 120, 120)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(AvaPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jButton2)
                 .addGap(77, 77, 77))
         );
@@ -98,7 +96,8 @@ public class Page extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2)
-                    .addComponent(Rentbouton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Rentbouton, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AvaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15))
         );
 
@@ -117,6 +116,7 @@ public class Page extends javax.swing.JFrame {
         }  
         setLayout(new BorderLayout());
         add(Employees.Carlist.get(indice).panel);
+        AvaPanel.setText("");
         revalidate();
         repaint();
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -129,13 +129,19 @@ public class Page extends javax.swing.JFrame {
         }   
         setLayout(new BorderLayout());
         add(Employees.Carlist.get(indice).panel);
+        AvaPanel.setText("");
         revalidate();
         repaint();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void RentboutonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RentboutonActionPerformed
-        RentPage r=new RentPage(indice);
-        r.setVisible(true);
+        if (Employees.Carlist.get(indice).isEtat()){
+            RentPage r=new RentPage(indice);
+            r.setVisible(true);
+        }
+        else{
+            AvaPanel.setText("Car is not available");
+        }
 
     }//GEN-LAST:event_RentboutonActionPerformed
 
@@ -176,6 +182,7 @@ public class Page extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel AvaPanel;
     private javax.swing.JButton Rentbouton;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

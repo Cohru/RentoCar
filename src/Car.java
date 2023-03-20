@@ -23,20 +23,20 @@ public class Car {
     protected CarPanel panel;
     private Icon icon;
     // Constructor car 
-    public Car (int id,double price,String description,int popu,boolean stat,Icon ic){
+    public Car (int id,double price,String description,int popu,boolean stat,double discount,Icon ic){
         carID=id;
         
         this.Price= price;
         this.description=description;
         popularity =popu;
         etat = stat;
-
+        this.discount=discount;
         icon = ic;
         panel = new CarPanel();
         panel.ImageLabel.setIcon(icon);
         panel.jTextArea2.setText(description);
         panel.PrixCase.setText(Double.toString(Price));
-        
+        panel.jLabel4.setText(Double.toString(discount*100));
         if (discount == 0){
             panel.jLabel4.setVisible(false);
             panel.DiscountTextLabel.setVisible(false);
@@ -45,6 +45,7 @@ public class Car {
             panel.jLabel4.setVisible(true);
             panel.DiscountTextLabel.setVisible(true);
         }
+
     }
     
     //Car Methods

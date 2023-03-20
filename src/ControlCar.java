@@ -151,7 +151,7 @@ public class ControlCar extends javax.swing.JFrame {
         setLayout(new BorderLayout());
         add(Employees.Carlist.get(select).panel);
         PopuLabel.setText(Integer.toString( Employees.Carlist.get(select).getPopularity()));
-        System.out.println(Employees.Carlist.size());
+        
         if (Employees.Carlist.get(select).isEtat()){
             StatLabel.setText("Available");
         }
@@ -186,6 +186,8 @@ public class ControlCar extends javax.swing.JFrame {
         str = JOptionPane.showInputDialog("Enter the discount");
         discount = Double.parseDouble(str);
         Employees.Carlist.get(select).setDiscount(discount);
+        CarImpl cipp = new CarImpl();
+        cipp.CarDiscount(Employees.Carlist.get(select).getCarID(), discount);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -194,8 +196,15 @@ public class ControlCar extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         CarImpl cim = new CarImpl();
-        
-        cim.CarStat(Employees.Carlist.get(select).getCarID(), true);
+        boolean libre = !Employees.Carlist.get(select).isEtat();
+        Employees.Carlist.get(select).setEtat(libre);
+        cim.CarStat(Employees.Carlist.get(select).getCarID(), libre);
+        if (libre){
+            StatLabel.setText("Available");
+        }
+        else{
+            StatLabel.setText("no available");
+        }
     }//GEN-LAST:event_jButton5ActionPerformed
 
     /**

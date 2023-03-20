@@ -18,7 +18,8 @@ public class Accueil extends javax.swing.JFrame {
         Rent_tocar cl = new Rent_tocar();
         cl.Recupcar(Employees.Carlist);
         
-         
+        Rent_toCustomers rtc = new Rent_toCustomers();
+        rtc.RecupCustomer(Employees.client);
     }
 
     /**

@@ -157,7 +157,7 @@ public class AddCarPage extends javax.swing.JFrame {
         int id = Integer.valueOf(Idfield.getText());
         double price = Double.valueOf(Pricefield.getText());
         String description = DescField.getText();
-        Car nvoiture = new Car(id,price,description,0,false,imic);
+        Car nvoiture = new Car(id,price,description,0,false,0,imic);
         Employees.Carlist.add(nvoiture);
         CarImpl ci = new CarImpl();
         try {

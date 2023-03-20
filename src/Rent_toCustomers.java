@@ -1,14 +1,3 @@
-    /*
-     * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-     * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
-     */
-
-
-    /**
-     *
-     * @author Jus
-     */
-
 
 import java.awt.image.BufferedImage;
 import java.io.InputStream;
@@ -20,15 +9,20 @@ import java.util.ArrayList;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
-    /**
-     *
-     * @author mysqltest
-     */
-    public class Rent_tocar {
-        private Connection conn;
-        private java.sql.Blob blob;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 
-        public void Recupcar(ArrayList<Car> Carini){
+/**
+ *
+ * @author hucor
+ */
+public class Rent_toCustomers {
+    private Connection conn;
+    private java.sql.Blob blob;
+
+    public void RecupCustomer(ArrayList<Customers> clicli){
             
         try {
             // db parameters - ptest is the name of the database
@@ -41,21 +35,17 @@ import javax.swing.ImageIcon;
             // more processing here
             // ...   
             Statement stmt=conn.createStatement(); 
-            ResultSet rs=stmt.executeQuery("select * from car"); 
+            ResultSet rs=stmt.executeQuery("select * from customer"); 
             while(rs.next()) {
                 
             //System.out.println(rs.getInt(1)+"  "+rs.getString(2)); 
-            int id = rs.getInt(1);
-            double price = rs.getDouble(2);
-            String description = rs.getString(5);
-            
-            blob = rs.getBlob(7);  
-            InputStream in = blob.getBinaryStream();  
-            BufferedImage image = ImageIO.read(in);
-            ImageIcon photo = new ImageIcon(image);
-            Car voiture = new Car(id,price,description,rs.getInt(3),rs.getBoolean(4),rs.getDouble(6),photo);
-            Carini.add(voiture);
-
+            String email = rs.getString(1);
+            String name = rs.getString(2);
+            String Passeword = rs.getString(3);
+            boolean business = rs.getBoolean(4);
+            Customers iencli = new Customers(name,email,Passeword,business);
+            clicli.add(iencli);
+            System.out.println(email+name+Passeword);
             }
             conn.close(); 
         }
@@ -66,8 +56,4 @@ import javax.swing.ImageIcon;
 
     }
         
-     
-
-}  
-
-        
+}

@@ -97,6 +97,42 @@ public class CarImpl {
             }
         }
     }
+        
+    public void addCustomers(Customers cli) throws IOException, SQLException {
+        Connection dbConnection = null;
+        PreparedStatement statement = null;
+
+        
+        try {
+            DataSource dataSource = new DataSource();
+            dbConnection = dataSource.createConnection();
+
+            
+
+            // Créer la requête SQL paramétrée pour l'insertion de la voiture
+            String sql = "INSERT INTO customer (email,name,password,business,businessdiscount) VALUES (?, ?, ?, ?, ?)";
+            statement = dbConnection.prepareStatement(sql);
+            statement.setString(1, cli.getEmail());
+            statement.setString(2, cli.getName());
+            statement.setString(3, cli.getPasseword());
+            statement.setBoolean(4,cli.isBusiness());
+            statement.setDouble(5, cli.getBusinessdiscount());
+            // Exécuter la requête SQL
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            // Fermer les ressources
+            if (statement != null) {
+                statement.close();
+            }
+            if (dbConnection != null) {
+                dbConnection.close();
+            }
+        }
+    }    
+        
+        
     public void updatePopularityInDatabase(int id, int newPopularity) {
         Connection conn = null;
         PreparedStatement stmt = null;
@@ -125,6 +161,25 @@ public class CarImpl {
             DataSource dataSource = new DataSource();
             conn = dataSource.createConnection();
             String sql = "UPDATE car SET state = " + et + " WHERE car_id = " + id;
+            stmt = conn.prepareStatement(sql);
+            stmt.executeUpdate(sql);
+            stmt.close();
+            conn.close();
+            System.out.println("Successfully updated popularity for car with ID " + id
+            );
+    } catch (SQLException e) {
+        System.out.println("Error updating popularity in database: " + e.getMessage());
+    }
+
+    }
+    
+    public void CarDiscount(int id, double disc) {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        try {
+            DataSource dataSource = new DataSource();
+            conn = dataSource.createConnection();
+            String sql = "UPDATE car SET discount = " + disc + " WHERE car_id = " + id;
             stmt = conn.prepareStatement(sql);
             stmt.executeUpdate(sql);
             stmt.close();

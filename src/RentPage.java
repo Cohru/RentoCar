@@ -170,7 +170,8 @@ public class RentPage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void NewCustoBoutonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewCustoBoutonActionPerformed
-        // TODO add your handling code here:
+        NewCustomerPage ncp = new NewCustomerPage();
+        ncp.setVisible(true);
     }//GEN-LAST:event_NewCustoBoutonActionPerformed
 
     private void SubmitBoutonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitBoutonActionPerformed
@@ -179,24 +180,22 @@ public class RentPage extends javax.swing.JFrame {
         Endate = EnDate.getDate();
         long timeDiff = Math.abs(Begdate.getTime() - Endate.getTime());
         daysDiff = TimeUnit.DAYS.convert(timeDiff, TimeUnit.MILLISECONDS);
-
-
         email = Emailfield.getText();
         Passeword = Passewordfield.getText();
+        
+        
         for (int  i =0;i<Employees.client.size();i++){
             if (email.equals(Employees.client.get(i).getEmail()) && Passeword.equals(Employees.client.get(i).getEmail()));
             inde=i;
         }
         Rent re = new Rent(Employees.client.get(inde).getEmail(),Employees.Carlist.get(indice).getCarID(),Begdate,Endate,daysDiff);
-        Employees.rent.add(re);
+        
         CarImpl cim = new CarImpl();
-        try {
-            cim.addRent(re);
-        } catch (IOException ex) {
-            Logger.getLogger(RentPage.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(RentPage.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
+        
+        PayementPage pp = new PayementPage(re,Employees.client.get(inde).getBusinessdiscount());
+        pp.setVisible(true);
+        
         Employees.Carlist.get(indice).popularity();
         // UPDATE CAR STATE 
         cim.updatePopularityInDatabase(Employees.Carlist.get(indice).getCarID(), Employees.Carlist.get(indice).getPopularity());
