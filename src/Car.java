@@ -1,5 +1,6 @@
 
 
+import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
@@ -23,7 +24,7 @@ public class Car {
     protected CarPanel panel;
     private Icon icon;
     // Constructor car 
-    public Car (int id,double price,String description,int popu,boolean stat,double discount,Icon ic){
+    public Car (int id,double price,String description,int popu,boolean stat,double discount,ImageIcon ic){
         carID=id;
         
         this.Price= price;
@@ -33,7 +34,10 @@ public class Car {
         this.discount=discount;
         icon = ic;
         panel = new CarPanel();
-        panel.ImageLabel.setIcon(icon);
+        Image myimg=ic.getImage();
+        Image scaledimg=myimg.getScaledInstance(220, 190, Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon=new ImageIcon(scaledimg);
+        panel.ImageLabel.setIcon(scaledIcon);
         panel.jTextArea2.setText(description);
         panel.PrixCase.setText(Double.toString(Price));
         panel.jLabel4.setText(Double.toString(discount*100));

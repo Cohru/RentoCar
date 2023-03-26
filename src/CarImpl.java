@@ -190,7 +190,7 @@ public class CarImpl {
 
     }
     
-    public  void delete_car(int id) throws SQLException {
+    public void delete_car(int id) throws SQLException {
         Connection conn = null;
         PreparedStatement stmt = null;
         try {
