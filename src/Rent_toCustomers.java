@@ -45,7 +45,6 @@ public class Rent_toCustomers {
             boolean business = rs.getBoolean(4);
             Customers iencli = new Customers(name,email,Passeword,business);
             clicli.add(iencli);
-            System.out.println(email+name+Passeword);
             }
             conn.close(); 
         }
