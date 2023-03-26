@@ -16,7 +16,7 @@ public class Rent {
     private Date beginning;
     private Date end;
     private long days;
-
+    private double price;
     public Rent(String email, int ID, Date beginning, Date end, long days) {
         this.email = email;
         this.ID = ID;
@@ -25,7 +25,15 @@ public class Rent {
         this.days = days;
     }
     
-
+    public Rent(String email, int ID, Date beginning, Date end, long days,double price) {
+        this.email = email;
+        this.ID = ID;
+        this.beginning = beginning;
+        this.end = end;
+        this.days = days;
+        this.price = price;
+    }
+    
 
     public void setBeginning(Date beginning) {
         this.beginning = beginning;
@@ -34,7 +42,14 @@ public class Rent {
     public void setEnd(Date end) {
         this.end = end;
     }
+    public void setPrice(double price){
+        this.price=price;
+    }
 
+    public double getPrice(){
+        return price;
+    }
+    
     public String getEmail() {
         return email;
     }

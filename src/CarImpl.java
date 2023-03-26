@@ -14,9 +14,7 @@ public class CarImpl {
         PreparedStatement statement = null;
 
         BufferedImage image = new BufferedImage(voiture.getIcon().getIconWidth(), voiture.getIcon().getIconHeight(), BufferedImage.TYPE_INT_RGB);
-        
-        
-        
+
         image.getGraphics().drawImage(voiture.getIcon().getImage(), 0, 0, null);
 
         // Convertir l'image en BLOB
@@ -74,14 +72,14 @@ public class CarImpl {
             java.sql.Date sqlEnd = new java.sql.Date(end.getTime());
             
             // Créer la requête SQL paramétrée pour l'insertion de la voiture
-            String sql = "INSERT INTO rent (date_debut,date_fin,car_id,email,days) VALUES (?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO rent (date_debut,date_fin,car_id,email,days,price) VALUES (?, ?, ?, ?, ?,?)";
             statement = dbConnection.prepareStatement(sql);
             statement.setDate(1, (Date) sqlBeginning);
             statement.setDate(2, (Date) sqlEnd);
             statement.setInt(3, re.getID());
             statement.setString(4, re.getEmail());
             statement.setLong(5, re.getDays());
-    
+            statement.setDouble(6, re.getPrice());
 
             // Exécuter la requête SQL
             statement.executeUpdate();
@@ -191,4 +189,31 @@ public class CarImpl {
     }
 
     }
+    
+    public  void delete_car(int id) throws SQLException {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        try {
+            DataSource dataSource = new DataSource();
+            conn = dataSource.createConnection();
+            String sql = "DELETE FROM `car` WHERE car_id = "+id;
+            PreparedStatement statement = conn.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+            System.out.println(statement);
+        } catch (SQLException e) {
+            System.out.println("Error executing SQL statement: " + e.getMessage());
+
+        } finally {
+            try {
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+
+    }
+    
+    
 }

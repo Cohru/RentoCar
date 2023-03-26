@@ -16,6 +16,7 @@ import java.util.logging.Logger;
 public class PayementPage extends javax.swing.JFrame {
     private Rent rr;
     private double bussinessRed;
+    double total;
     public PayementPage(Rent re,double disc) {
         initComponents();
         rr=re;
@@ -28,14 +29,20 @@ public class PayementPage extends javax.swing.JFrame {
                 discount = Employees.Carlist.get(i).getDiscount();
             }
         }
+        
+        String txt = "Price :   "+ price + " x "+re.getDays();
+        if (discount!= 0){
+            txt+= "\nDiscount - "+ (discount*100);
+        }
         if (bussinessRed != 0){
-            PriceText.setText("Price:"+price +"\n - "+ (discount*100) + " - " + (bussinessRed*100));           
+            txt+= "\nBusiness - " + (bussinessRed*100);           
         }
-        else {
-            PriceText.setText("Price:"+price +"\n - "+ (discount*100));
-        }
+        
+        PriceText.setText(txt);
+         total = price*re.getDays()*(1-discount-bussinessRed);
+        TotalField.setText(Double.toString(total));
     }
-
+        
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -51,6 +58,8 @@ public class PayementPage extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         PriceText = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
+        TotalField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,6 +78,8 @@ public class PayementPage extends javax.swing.JFrame {
         PriceText.setRows(5);
         jScrollPane1.setViewportView(PriceText);
 
+        jLabel1.setText("TOTAL");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -80,13 +91,14 @@ public class PayementPage extends javax.swing.JFrame {
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(35, 35, 35))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(CardField))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
+                    .addComponent(CardField)
+                    .addComponent(TotalField))
                 .addGap(155, 155, 155))
             .addGroup(layout.createSequentialGroup()
                 .addGap(158, 158, 158)
@@ -103,11 +115,15 @@ public class PayementPage extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(59, 59, 59)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(TotalField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(CardField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(53, 53, 53)
+                .addGap(27, 27, 27)
                 .addComponent(jButton1)
                 .addGap(39, 39, 39))
         );
@@ -116,23 +132,32 @@ public class PayementPage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Employees.rent.add(rr);
-        CarImpl cim = new CarImpl();
-        try {
-            cim.addRent(rr);
-        } catch (IOException ex) {
-            Logger.getLogger(RentPage.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(RentPage.class.getName()).log(Level.SEVERE, null, ex);
+        if (CardField.getText().equals("")){
+            
         }
-        dispose();
+        else{
+            Employees.rent.add(rr);
+            rr.setPrice(total);
+            CarImpl cim = new CarImpl();
+            try {
+                cim.addRent(rr);
+            } catch (IOException ex) {
+                Logger.getLogger(RentPage.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(RentPage.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            dispose();
+        }
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField CardField;
     private javax.swing.JTextArea PriceText;
+    private javax.swing.JTextField TotalField;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;

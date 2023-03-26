@@ -34,7 +34,7 @@ public class Rent_toRent {
             ResultSet rs=stmt.executeQuery("select * from Rent"); 
             while(rs.next()) {
 
-                Rent r= new Rent(rs.getString(4),rs.getInt(3),rs.getDate(1),rs.getDate(2),rs.getInt(5));
+                Rent r= new Rent(rs.getString(4),rs.getInt(3),rs.getDate(1),rs.getDate(2),rs.getInt(5),rs.getDouble(6));
                 Renti.add(r);
                 
             }

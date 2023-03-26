@@ -28,9 +28,11 @@ public class RentPage extends javax.swing.JFrame {
     protected String Passeword;
     protected int inde;
     private int indice;
-    public RentPage(int indice) {
+    
+    public RentPage(int indice,int cusindice) {
         initComponents();
         this.indice=indice;
+        inde = cusindice;
     }
 
     public Date getBegdate() {
@@ -65,13 +67,11 @@ public class RentPage extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         EnDate = new com.toedter.calendar.JDateChooser();
         jLabel2 = new javax.swing.JLabel();
-        Emailfield = new javax.swing.JTextField();
-        Passewordfield = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        NewCustoBouton = new javax.swing.JButton();
         SubmitBouton = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        error1field = new javax.swing.JLabel();
+        error2field = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -84,17 +84,6 @@ public class RentPage extends javax.swing.JFrame {
         EnDate.setMinSelectableDate(new java.util.Date(1677632467000L));
 
         jLabel2.setText("Ending Date");
-
-        jLabel3.setText("Email");
-
-        jLabel4.setText("Passeword");
-
-        NewCustoBouton.setText("New Customer");
-        NewCustoBouton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NewCustoBoutonActionPerformed(evt);
-            }
-        });
 
         SubmitBouton.setText("Submit");
         SubmitBouton.addActionListener(new java.awt.event.ActionListener() {
@@ -110,69 +99,76 @@ public class RentPage extends javax.swing.JFrame {
             }
         });
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel3.setText("Choose your date");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(SubmitBouton)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(Passewordfield)
-                            .addComponent(Emailfield)
-                            .addComponent(EnDate, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
-                            .addComponent(BeginDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(29, 29, 29)
-                        .addComponent(NewCustoBouton)))
-                .addContainerGap(10, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(110, 110, 110)
+                                .addComponent(error1field, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(49, 49, 49)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(EnDate, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(BeginDate, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(107, Short.MAX_VALUE)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(88, 88, 88)
+                                .addComponent(error2field, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(170, 170, 170)
+                                .addComponent(SubmitBouton)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton1)
-                .addGap(15, 15, 15)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BeginDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BeginDate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(error1field, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(EnDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(Emailfield)
-                        .addComponent(NewCustoBouton)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Passewordfield)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(30, 30, 30)
+                .addComponent(error2field, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
                 .addComponent(SubmitBouton)
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addGap(29, 29, 29))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void NewCustoBoutonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewCustoBoutonActionPerformed
-        NewCustomerPage ncp = new NewCustomerPage();
-        ncp.setVisible(true);
-    }//GEN-LAST:event_NewCustoBoutonActionPerformed
 
     private void SubmitBoutonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitBoutonActionPerformed
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
@@ -180,27 +176,44 @@ public class RentPage extends javax.swing.JFrame {
         Endate = EnDate.getDate();
         long timeDiff = Math.abs(Begdate.getTime() - Endate.getTime());
         daysDiff = TimeUnit.DAYS.convert(timeDiff, TimeUnit.MILLISECONDS);
-        email = Emailfield.getText();
-        Passeword = Passewordfield.getText();
         
+        boolean b1 = false;
+        boolean b2 = false;
         
-        for (int  i =0;i<Employees.client.size();i++){
-            if (email.equals(Employees.client.get(i).getEmail()) && Passeword.equals(Employees.client.get(i).getEmail()));
-            inde=i;
+        for (int i = 0;i<Employees.rent.size();i++){
+            if (Employees.rent.get(i).getID()==Employees.Carlist.get(indice).getCarID()){
+                if (Begdate.after(Employees.rent.get(i).getBeginning()) && Begdate.before(Employees.rent.get(i).getEnd())) {
+                    b1=true;
+                    error1field.setText("date is not available");
+                } 
+            }
         }
+
+                
+        for (int i = 0;i<Employees.rent.size();i++){
+            if (Employees.rent.get(i).getID()==Employees.Carlist.get(indice).getCarID()){
+                if (Endate.after(Employees.rent.get(i).getBeginning()) && Endate.before(Employees.rent.get(i).getEnd())) {
+                b2=true;
+                error2field.setText("date is not available");
+
+                } 
+            }
+        }
+        
+        
+        if (!b1 && !b2){
+      
         Rent re = new Rent(Employees.client.get(inde).getEmail(),Employees.Carlist.get(indice).getCarID(),Begdate,Endate,daysDiff);
-        
         CarImpl cim = new CarImpl();
-        
-        
         PayementPage pp = new PayementPage(re,Employees.client.get(inde).getBusinessdiscount());
         pp.setVisible(true);
         
         Employees.Carlist.get(indice).popularity();
         // UPDATE CAR STATE 
         cim.updatePopularityInDatabase(Employees.Carlist.get(indice).getCarID(), Employees.Carlist.get(indice).getPopularity());
-        cim.CarStat(Employees.Carlist.get(indice).getCarID(), false);
-        dispose();
+        //cim.CarStat(Employees.Carlist.get(indice).getCarID(), false);
+        dispose();}
+
     }//GEN-LAST:event_SubmitBoutonActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -210,15 +223,13 @@ public class RentPage extends javax.swing.JFrame {
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.toedter.calendar.JDateChooser BeginDate;
-    private javax.swing.JTextField Emailfield;
     private com.toedter.calendar.JDateChooser EnDate;
-    private javax.swing.JButton NewCustoBouton;
-    private javax.swing.JTextField Passewordfield;
     private javax.swing.JButton SubmitBouton;
+    private javax.swing.JLabel error1field;
+    private javax.swing.JLabel error2field;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     // End of variables declaration//GEN-END:variables
 }
