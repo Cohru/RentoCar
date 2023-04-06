@@ -17,6 +17,8 @@ public class Rent {
     private Date end;
     private long days;
     private double price;
+    
+    
     public Rent(String email, int ID, Date beginning, Date end, long days) {
         this.email = email;
         this.ID = ID;

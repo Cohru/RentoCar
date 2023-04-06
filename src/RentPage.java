@@ -203,16 +203,17 @@ public class RentPage extends javax.swing.JFrame {
         
         if (!b1 && !b2){
       
-        Rent re = new Rent(Employees.client.get(inde).getEmail(),Employees.Carlist.get(indice).getCarID(),Begdate,Endate,daysDiff);
-        CarImpl cim = new CarImpl();
-        PayementPage pp = new PayementPage(re,Employees.client.get(inde).getBusinessdiscount());
-        pp.setVisible(true);
-        
-        Employees.Carlist.get(indice).popularity();
-        // UPDATE CAR STATE 
-        cim.updatePopularityInDatabase(Employees.Carlist.get(indice).getCarID(), Employees.Carlist.get(indice).getPopularity());
-        //cim.CarStat(Employees.Carlist.get(indice).getCarID(), false);
-        dispose();}
+            Rent re = new Rent(Employees.client.get(inde).getEmail(),Employees.Carlist.get(indice).getCarID(),Begdate,Endate,daysDiff);
+            CarImpl cim = new CarImpl();
+            PayementPage pp = new PayementPage(re,Employees.client.get(inde).getBusinessdiscount());
+            pp.setVisible(true);
+
+            Employees.Carlist.get(indice).popularity();
+            // UPDATE CAR STATE 
+            cim.updatePopularityInDatabase(Employees.Carlist.get(indice).getCarID(), Employees.Carlist.get(indice).getPopularity());
+            //cim.CarStat(Employees.Carlist.get(indice).getCarID(), false);
+            dispose();
+        }
 
     }//GEN-LAST:event_SubmitBoutonActionPerformed
 

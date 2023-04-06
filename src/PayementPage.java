@@ -17,6 +17,7 @@ public class PayementPage extends javax.swing.JFrame {
     private Rent rr;
     private double bussinessRed;
     double total;
+    
     public PayementPage(Rent re,double disc) {
         initComponents();
         rr=re;
